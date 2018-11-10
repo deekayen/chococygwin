@@ -1,2 +1,3 @@
 ---
 # defaults file for jefg60.chococygwin
+cyg_upgrade: false
