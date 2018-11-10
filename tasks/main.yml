@@ -22,7 +22,7 @@
 
   - name: cyg-get packages
     win_command: "cyg-get.bat {{ cyg_get_packages|join(' ') }}"
-    when: missing_cygwin_pkgs
+    when: missing_cygwin_pkgs is defined and missing_cygwin_pkgs == true
   #skip this block if cyg_get_packages undefined
   when: cyg_get_packages is defined
 
