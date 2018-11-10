@@ -1,7 +1,7 @@
 jefg60.chococygwin
 =========
 
-Uses chocolatey package manager to install cygwin on windows and manage which parts of cygwin are installed.
+Ansible role that uses chocolatey package manager to install cygwin on windows and manage which parts of cygwin are installed.
 
 Requirements
 ------------
