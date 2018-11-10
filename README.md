@@ -11,7 +11,7 @@ Role Variables
 
 optional variables:
     cyg_get_packages: list of packages to install inside cygwin
-    cyg_upgrade: set to true if you want to automatically upgrade all cygwin packages
+    cyg_upgrade: set to true if you want to automatically upgrade all cygwin packages. default false
 
 Dependencies
 ------------
