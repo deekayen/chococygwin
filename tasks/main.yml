@@ -1,2 +1,28 @@
 ---
 # tasks file for jefg60.chococygwin
+
+- name: install cyg-get
+  win_chocolatey:
+    name: cyg-get
+    state: present
+
+- name: stat cygwin binaries
+  win_stat:
+    path: "c:\\tools\\cygwin\\bin\\{{ item }}.exe"
+  register: cyg_get_pkg_stats
+  with_items: "{{ cyg_get_packages }}"
+  when: cyg_get_packages is defined
+
+- name: check if cygwin binaries are missing
+  set_fact:
+    missing_cygwin_pkgs: true
+  when: item.stat.exists  == false
+  with_items: "{{ cyg_get_pkg_stats.results }}"
+
+- name: cyg-get packages
+  win_command: "cyg-get.bat {{ cyg_get_packages|join(' ') }}"
+  when: missing_cygwin_pkgs
+
+- name: upgrade existing cygwin pkgs
+  win_command: "cyg-get.bat -upgrade all"
+  when: cyg_upgrade
