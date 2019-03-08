@@ -29,3 +29,4 @@
 - name: upgrade existing cygwin pkgs
   win_command: "cyg-get.bat -upgrade all"
   when: cyg_upgrade
+  changed_when: false
